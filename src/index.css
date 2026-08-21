@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color-scheme: dark light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: #0f172a;
+  color: #f8fafc;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+  /* 추가된것 */
+}
+
+/* 추가된것 */
+.fp-section {
+  height: 100vh !important;
+  min-height: 100vh !important;
+  box-sizing: border-box;
+}
+
+/* 3. GPU 가속으로 리사이즈 시 화면 깜빡임 방지 */
+.section {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* 추가된것 끝 */
+
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
