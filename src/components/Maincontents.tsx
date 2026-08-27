@@ -4,6 +4,7 @@ import MainSection from "./MainSection";
 import CalendarSection from "./CalendarSection";
 import AnalyticsSection from "./AnalyticsSection";
 import Test from "./Test";
+import Footer from "./Footer";
 
 
 const ReactFullpage = (FullpagePkg as any).default || FullpagePkg;
@@ -32,7 +33,7 @@ function FullPageDemo() {
                         </div>
 
                         {/* Section 2: Calendar & Vacation Carousel */}
-                        <div className="section bg-slate-950 text-white relative">
+                        <div className="section bg-slate-900 text-white relative">
                             <CalendarSection />
                         </div>
 
@@ -46,6 +47,7 @@ function FullPageDemo() {
                             <div className="flex flex-col items-center justify-center min-h-screen px-6 text-center">
                                 <Test />
                             </div>
+
                         </div>
                     </Wrapper>
                 )}

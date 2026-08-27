@@ -4,6 +4,10 @@ import { IoSearchOutline, IoCloseOutline } from 'react-icons/io5';
 import './cursor.css';
 import Drawer from './components/Drawer';
 
+//https://velog.io/@bangina/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EA%BF%80%ED%8C%81-%EB%A7%88%EC%9A%B0%EC%8A%A4%EC%BB%A4%EC%84%9C-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98-%EB%A7%8C%EB%93%A4%EA%B8%B0%EC%89%AC%EC%9B%80
+
+
+
 const Navbar = () => {
     const cursorRef = useRef<HTMLDivElement>(null);
     const searchInputRef = useRef<HTMLInputElement>(null);
@@ -115,32 +119,32 @@ const Navbar = () => {
                         <ul className="flex items-center gap-6">
                             <li>
                                 <Link
-                                    to="/TestComponent"
+                                    to="/FeaturePage"
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
                                     className="nav-link text-sm font-medium text-slate-600"
                                 >
-                                    Section1
+                                    機能
                                 </Link>
                             </li>
                             <li>
                                 <a
-                                    href="#account"
+                                    href="/PricingPage"
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
                                     className="nav-link text-sm font-medium text-slate-600"
                                 >
-                                    Section2
+                                    料金
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href="#blocks"
+                                    href="/ErrorPage"
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
                                     className="nav-link text-sm font-medium text-slate-600"
                                 >
-                                    Section3
+                                    About
                                 </a>
                             </li>
                             <li>
@@ -150,7 +154,7 @@ const Navbar = () => {
                                     onMouseLeave={handleMouseLeave}
                                     className="nav-link text-sm font-medium text-slate-600"
                                 >
-                                    Section4
+                                    FAQ
                                 </Link>
                             </li>
                         </ul>

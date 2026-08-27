@@ -8,12 +8,11 @@ interface VacationCard {
 }
 
 const vacationImages: VacationCard[] = [
-    { num: "01", title: "Emerald Coast", location: "Bali, Indonesia" },
-    { num: "02", title: "Crystal Lagoon", location: "Maldives" },
-    { num: "03", title: "Sunset Haven", location: "Santorini, Greece" },
-    { num: "04", title: "Tropical Oasis", location: "Phuket, Thailand" },
-    { num: "05", title: "Azure Paradise", location: "Hawaii, USA" },
-
+    { num: "01", title: "見やすい", location: "UI・UX" },
+    { num: "02", title: "通知", location: "通知" },
+    { num: "03", title: "日程管理", location: "機能一覧" },
+    { num: "04", title: "便利な機能", location: "タスク" },
+    { num: "05", title: "便利な設定", location: "設定" },
 ];
 
 const CalendarSection = () => {

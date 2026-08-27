@@ -73,9 +73,24 @@ function UserCard() {
 
 function UserCard2() {
   return (
-    <div className="card">
-      <h3>사용자 카드</h3>
-      <p>컴포넌트 테스트 영역입니다.</p>
+    <div className="card mt-30 ">
+      <div className="w-full bg-gray-300 justify-center items-center text-center">
+        <div className='text-center'>開発しております。</div>
+        <h3>工事中</h3>
+        <p>Testingしているコンポネントです。</p>
+      </div>
+      <div className='grid grid-cols-4'>
+        <div className='w-full bg-red-500 h-30 hover:bg-red-700'></div>
+        <div className='w-full bg-green-500 h-30 hover:bg-green-700'></div>
+        <div className='w-full bg-blue-500 h-30 hover:bg-blue-700'></div>
+        <div className='w-full bg-yellow-500 h-30 hover:bg-yellow-700'></div>
+      </div>
+      <div className='bg-grey-500 h-30 hover:bg-black'>
+        ddd
+        <span className='text-white'>daw ddd</span>
+
+      </div>
+      <div className='rounded-full border h-30 bg-red-500 flex items-center justify-center mb-4 m-2' > dadawd</div>
     </div>
   );
 }

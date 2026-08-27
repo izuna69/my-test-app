@@ -200,3 +200,23 @@ body::-webkit-scrollbar {
     border-right-color: var(--border);
   }
 }
+
+
+
+/* 1. 기본 상태 (비활성화된 동그라미) */
+#fp-nav ul li a span {
+  background: rgba(255, 255, 255, 0.3) !important;
+  /* 반투명 흰색 */
+}
+
+/* 2. 현재 선택(활성화)된 동그라미 */
+#fp-nav ul li a.active span {
+  background: #06b6d4 !important;
+  /* 원하는 포인트 색상 (예: 시안/청록 #06b6d4, 보라 #8b5cf6, 네온 #10b981 등) */
+}
+
+/* 3. 마우스를 올렸을 때 (hover) */
+#fp-nav ul li:hover a span {
+  background: #ffffff !important;
+  /* 흰색 */
+}
