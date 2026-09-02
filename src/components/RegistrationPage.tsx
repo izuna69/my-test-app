@@ -1,3 +1,4 @@
+import axios from "axios";
 import { stringify } from "postcss";
 import { useState } from "react";
 
@@ -9,24 +10,35 @@ const RegistrationPage = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
 
+        if (password != repassword) {
+            alert("recomfirm password")
+            return
+        }
         try {
             e.preventDefault();
-            const response = await fetch("/#", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email: email,
-                    password: password,
-                    repassword: repassword
-                })
-            });
-            if (response.ok) {
+            const response = await axios
+                .post("http://localhost:8080/api/auth/register",
+                    { email: email, password: password, rePassword: repassword, }
+                )
+            if (response.data.token) {
+                console.log("seikou")
+                alert("sinnki tourokukannryou")
 
+                if (response.data.token) {
+                    console.log("token seikou")
+
+                }
+
+                else {
+                    console.log("token sippai")
+                }
             }
-        } catch (Error) {
-            alert("yarinaositekudasai")
+        } catch (error: any) {
+            if (error.response?.status === 400) {
+                alert("sudeni aru me-rudesu");
+            } else {
+                alert("Serverni era-gahasseisimasita.");
+            }
         }
     }
 
@@ -93,7 +105,7 @@ const RegistrationPage = () => {
                             Create an account</button>
                     </form>
 
-                    <div className="mt-6 text-slate-900 text-sm text-center dark:text-slate-50">Already have an account? <a href="#"
+                    <div className="mt-6 text-slate-900 text-sm text-center dark:text-slate-50">Already have an account? <a href="/LoginPage"
                         className="text-blue-700 hover:underline ml-1 font-medium dark:text-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
                         Login here</a>
                     </div>

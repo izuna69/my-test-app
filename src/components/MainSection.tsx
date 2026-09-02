@@ -1,16 +1,34 @@
+import { button } from "@material-tailwind/react";
 import { MdLogin } from "react-icons/md";
 
 
 const MainSection = () => {
+
+    const token = localStorage.getItem("accessLoginToken");
+    const isLogined = !!token;
+
     return (
         <div className="bg-gray-700">
-            <div className="flex justify-end">
-                <button
-                    onClick={() => { location.href = "/LoginPage" }}
-                    className="m-5 mr-10 rounded-full size-10 bg-red">
-                    <MdLogin className="w-12 h-12"></MdLogin>
 
-                </button>
+            <div className="flex justify-end">
+                <div>
+                    {isLogined ? (
+
+                        <button
+                            onClick={() => { localStorage.removeItem("accessLoginToken"); window.location.assign("/") }}
+                            className="m-5 mr-10 rounded-full size-10 bg-red">
+                            <MdLogin className="w-12 h-12"></MdLogin>
+                        </button>
+                    ) : (
+                        <button className="m-5 mr-10 text-xl size-10" onClick={() => {
+                            window.location.assign("/LoginPage")
+                        }}>
+                            Login
+                        </button>
+                    )}
+
+                </div>
+
 
             </div>
             <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
@@ -45,7 +63,7 @@ const MainSection = () => {
                                 className="rounded-md bg-gray-700 px-3.5 py-2.5 text-sm font-semibold text-white inset-ring inset-ring-white/5 hover:bg-gray-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                             >
                                 {' '}
-                                주찬아 여기 눌러봐
+                                アプリのダウンロードはこちら
                             </a>
                             <a href="/ErrorPage" className="text-sm/6 font-semibold text-white hover:text-gray-100">
                                 詳細

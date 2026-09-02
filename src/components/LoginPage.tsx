@@ -1,3 +1,4 @@
+import { Axios } from "axios";
 import React, { useEffect, useState } from "react";
 import { FaFlutter } from "react-icons/fa6";
 import { Navigate, useNavigate, useNavigation } from "react-router-dom";
@@ -29,26 +30,33 @@ const LoginPage = (() => {
 
         e.preventDefault();
         try {
-            const response = await fetch("http://localhost:8080/api/auth/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email: email,
-                    password: password,
-                }),
-            });
+            const response = await fetch("http://localhost:8080/api/auth/login",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password,
+                    }),
+                });
             if (response.ok) {
                 const data = await response.json();
-                console.log("seikou", email, passwordLenghtSize());
+
                 if (data.token) {
-                    localStorage.setItem('accessToken', data.token);
+                    alert("login seikou")
+                    localStorage.setItem('accessLoginToken', data.token);
+                    navigate("/");
+
                 } else {
                     console.log("token sippai");
                 }
+            } else if (response.status === 401) {
+                alert("id or password matigatteimasu")
+
             } else {
-                console.log("sippai");
+                alert("server error")
             }
         } catch (error) {
             navigate("/ErrorPage")
