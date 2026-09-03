@@ -46,7 +46,7 @@ const MainSection = () => {
                         </p>
                         <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
                             <a
-                                href="https://github.com/izuna69/calendar/releases/download/v2.0.0/CalendarSetup.exe"
+                                href="https://github.com/izuna69/calendar/releases/download/v2.0.0/CalendarSetup-x64.exe"
                                 className="rounded-md bg-gray-700 px-3.5 py-2.5 text-sm font-semibold text-white inset-ring inset-ring-white/5 hover:bg-gray-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                             >
                                 {' '}
