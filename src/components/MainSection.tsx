@@ -1,5 +1,8 @@
 import { button } from "@material-tailwind/react";
 import { MdLogin } from "react-icons/md";
+import DropdownMenu from "./DropdownMenu";
+
+
 
 
 const MainSection = () => {
@@ -11,23 +14,7 @@ const MainSection = () => {
         <div className="bg-gray-700">
 
             <div className="flex justify-end">
-                <div>
-                    {isLogined ? (
 
-                        <button
-                            onClick={() => { localStorage.removeItem("accessLoginToken"); window.location.assign("/") }}
-                            className="m-5 mr-10 rounded-full size-10 bg-red">
-                            <MdLogin className="w-12 h-12"></MdLogin>
-                        </button>
-                    ) : (
-                        <button className="m-5 mr-10 text-xl size-10" onClick={() => {
-                            window.location.assign("/LoginPage")
-                        }}>
-                            Login
-                        </button>
-                    )}
-
-                </div>
 
 
             </div>

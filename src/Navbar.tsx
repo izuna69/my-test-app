@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { IoSearchOutline, IoCloseOutline } from 'react-icons/io5';
 import './cursor.css';
 import Drawer from './components/Drawer';
 import { GiToken } from 'react-icons/gi';
+import DropdownMenu from './components/DropdownMenu';
 
 //https://velog.io/@bangina/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EA%BF%80%ED%8C%81-%EB%A7%88%EC%9A%B0%EC%8A%A4%EC%BB%A4%EC%84%9C-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98-%EB%A7%8C%EB%93%A4%EA%B8%B0%EC%89%AC%EC%9B%80
 
@@ -15,6 +16,13 @@ const Navbar = () => {
 
 
 
+    const location = useLocation();
+    const [isLogined, setIsLogined] = useState(false);
+
+    useEffect(() => {
+        const token = localStorage.getItem("accessLoginToken");
+        setIsLogined(!!token)
+    }, [location])
 
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -57,6 +65,21 @@ const Navbar = () => {
 
     return (
         <>
+            {location.pathname !== "/LoginPage" && (
+                <div className="fixed top-4 right-6 z-[9999]">
+                    {isLogined ? (
+
+                        <div className="flex items-center justify-center text-xl mt-3 me-3 text-white"><DropdownMenu /></div>
+
+                    ) : (
+                        <a
+                            href="/LoginPage"
+                            className="flex items-center justify-center text-xl mt-3 me-3 text-white"
+                        >
+                            Login
+                        </a>
+                    )}
+                </div>)}
             {/* Fixed Floating Navbar */}
             <nav className="fixed top-4 left-0 right-0 z-[9999] w-[92%] max-w-5xl mx-auto">
                 {/* 1층: 반투명 배경 (z-0) */}

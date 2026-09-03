@@ -45,7 +45,7 @@ const LoginPage = (() => {
                 const data = await response.json();
 
                 if (data.token) {
-                    alert("login seikou")
+                    alert(data.token + data.email)
                     localStorage.setItem('accessLoginToken', data.token);
                     navigate("/");
 
