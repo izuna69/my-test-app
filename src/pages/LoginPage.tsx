@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { FaFlutter } from "react-icons/fa6";
 import { Navigate, useNavigate, useNavigation } from "react-router-dom";
 
-const LoginPage = (() => {
+const LoginPage = () => {
 
     const navigate = useNavigate();
 
@@ -147,5 +147,5 @@ const LoginPage = (() => {
             </div>
         </div>
     )
-});
+};
 export default LoginPage;

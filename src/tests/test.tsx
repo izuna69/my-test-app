@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import './cursor.css'; // 커서 스타일을 적용하기 위해 CSS 파일을 import 합니다.
+import TestRef from './test3';
+import '../styles/cursor.css'; // 커서 스타일을 적용하기 위해 CSS 파일을 import 합니다.
+
 
 function UserCard() {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -91,6 +93,9 @@ function UserCard2() {
 
       </div>
       <div className='rounded-full border h-30 bg-red-500 flex items-center justify-center mb-4 m-2' > dadawd</div>
+      <div>
+        <TestRef />
+      </div>
     </div>
   );
 }

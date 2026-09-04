@@ -28,7 +28,7 @@ const tiers = [
     },
 ]
 
-// ⭕ 올바른 코드
+
 function classNames(...classes: (string | boolean | undefined | null)[]) {
     return classes.filter(Boolean).join(' ');
 }

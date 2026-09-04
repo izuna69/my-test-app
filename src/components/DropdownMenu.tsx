@@ -77,7 +77,7 @@ const DropdownMenu = () => {
                         </MenuItem>
                         <MenuItem>
                             <a
-                                href="#"
+                                href="/SettingPage"
                                 className="block px-4 py-2 text-sm text-gray-300 data-focus:bg-white/5 data-focus:text-white data-focus:outline-hidden"
                             >
                                 Setting

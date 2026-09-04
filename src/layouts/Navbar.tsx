@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { IoSearchOutline, IoCloseOutline } from 'react-icons/io5';
-import './cursor.css';
-import Drawer from './components/Drawer';
+import '../styles/cursor.css';
+import Drawer from '../components/Drawer';
 import { GiToken } from 'react-icons/gi';
-import DropdownMenu from './components/DropdownMenu';
+import DropdownMenu from '../components/DropdownMenu';
 
 //https://velog.io/@bangina/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4-%EA%BF%80%ED%8C%81-%EB%A7%88%EC%9A%B0%EC%8A%A4%EC%BB%A4%EC%84%9C-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98-%EB%A7%8C%EB%93%A4%EA%B8%B0%EC%89%AC%EC%9B%80
 

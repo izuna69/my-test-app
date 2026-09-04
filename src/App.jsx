@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Navbar from './Navbar';
-import Footer from './components/Footer';
-import { UserCard2 } from './test';
+import Navbar from './layouts/Navbar';
+import Footer from './layouts/Footer';
+import { UserCard2 } from './tests/test';
 import FullPageDemo from './components/Maincontents';
-import PricingPage from './components/PricingPage';
-import FeaturePage from './components/FeaturePage';
-import ErrorPage from "./components/ErrorPage"
-import LoginPage from "./components/LoginPage"
-import RegistrationPage from './components/RegistrationPage';
+import PricingPage from './pages/PricingPage';
+import FeaturePage from './pages/FeaturePage';
+import ErrorPage from "./pages/ErrorPage"
+import LoginPage from "./pages/LoginPage"
+import RegistrationPage from './pages/RegistrationPage';
+import SettingPage from "./pages/SettingPage"
+import ProtectedRoute from "./layouts/ProtectedRoute";
 
 function App() {
   const [username, setUsername] = useState('');
@@ -25,6 +27,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
+        {/* 로그인 필요없는 곳 */}
         <Route path="/" element={<FullPageDemo />} />
         <Route path="/user-card" element={<UserCard2 />} />
         <Route path="/FeaturePage" element={<FeaturePage />} />
@@ -33,6 +36,10 @@ function App() {
         <Route path="/LoginPage" element={<LoginPage />} />
         <Route path="/RegistrationPage" element={<RegistrationPage />} />
 
+        {/* 로그이 필요한 주소  */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/SettingPage" element={<SettingPage />} />
+        </Route>
 
 
         {/* 없는주소일경우 */}

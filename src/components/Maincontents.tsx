@@ -3,8 +3,8 @@ import "fullpage.js/dist/fullpage.css";
 import MainSection from "./MainSection";
 import CalendarSection from "./CalendarSection";
 import AnalyticsSection from "./AnalyticsSection";
-import Test from "./Test";
-import Footer from "./Footer";
+import Test from "../pages/Test";
+import Footer from "../layouts/Footer";
 
 
 const ReactFullpage = (FullpagePkg as any).default || FullpagePkg;

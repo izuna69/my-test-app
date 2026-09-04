@@ -1,14 +1,29 @@
 import React from 'react';
-import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
+import { Dialog, DialogBackdrop, DialogPanel, DialogTitle, MenuButton } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
+import { button } from '@heroui/theme';
+import DropdownMenu from './DropdownMenu';
 
 interface DrawerProps {
     open: boolean;
     setOpen: (open: boolean) => void;
 }
 
+
+
 const Drawer: React.FC<DrawerProps> = ({ open, setOpen }) => {
+
+    const token = localStorage.getItem("accessLoginToken");
+    const isLogined = !!token;
+
+    const logoutHandle = () => {
+        localStorage.removeItem("accessLoginToken");
+        window.location.assign("/")
+    }
+
+
+
     return (
         <Dialog open={open} onClose={setOpen} className="relative z-[100000]">
             {/* Backdrop overlay */}
@@ -28,10 +43,26 @@ const Drawer: React.FC<DrawerProps> = ({ open, setOpen }) => {
                             <div className="flex h-full flex-col bg-slate-900 border-l border-slate-800 text-white shadow-2xl p-6">
                                 {/* Header */}
                                 <div className="flex items-center justify-between pb-5 border-b border-slate-800">
-                                    <DialogTitle className="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+
+                                    {isLogined ? (<DialogTitle className="text-lg font-bold tracking-tight text-white flex items-center gap-2">
                                         <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
-                                        Navigation
-                                    </DialogTitle>
+                                        <div className="flex items-center justify-center text-xl mt-3 me-3 text-white">
+                                            <div className="relative flex rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 cursor-pointer">
+                                                <span className="sr-only">Open user menu</span>
+                                                <img
+                                                    alt="Profile"
+                                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                                    className="size-10 rounded-full bg-gray-800 outline -outline-offset-1 outline-white/20 shadow-md hover:ring-2 hover:ring-white/50 transition object-cover"
+                                                />
+                                            </div>
+                                        </div>
+                                        namae tuika yotei
+                                    </DialogTitle>) :
+                                        (<DialogTitle className="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+                                            <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+                                            <div className="flex items-center justify-center text-xl mt-3 me-3 text-white">Login sitekudasai</div>
+                                        </DialogTitle>)}
+
                                     <button
                                         type="button"
                                         onClick={() => setOpen(false)}
@@ -47,61 +78,70 @@ const Drawer: React.FC<DrawerProps> = ({ open, setOpen }) => {
                                     <ul className="flex flex-col gap-2">
                                         <li>
                                             <Link
-                                                to="/"
+                                                to="/FeaturePage"
                                                 onClick={() => setOpen(false)}
                                                 className="flex items-center px-4 py-3 text-base font-medium rounded-xl text-slate-200 hover:bg-slate-800/80 hover:text-white transition"
                                             >
-                                                Home / Gallery
+                                                機能
                                             </Link>
                                         </li>
                                         <li>
                                             <Link
-                                                to="/"
+                                                to="/PricingPage"
                                                 onClick={() => setOpen(false)}
                                                 className="flex items-center px-4 py-3 text-base font-medium rounded-xl text-slate-200 hover:bg-slate-800/80 hover:text-white transition"
                                             >
-                                                Pages
+                                                料金
                                             </Link>
                                         </li>
                                         <li>
                                             <a
-                                                href="#account"
+                                                href="/ErrorPage"
                                                 onClick={() => setOpen(false)}
                                                 className="flex items-center px-4 py-3 text-base font-medium rounded-xl text-slate-200 hover:bg-slate-800/80 hover:text-white transition"
                                             >
-                                                Account
+                                                About
                                             </a>
                                         </li>
                                         <li>
+                                            <a
+                                                href="user-card"
+                                                onClick={() => setOpen(false)}
+                                                className="flex items-center px-4 py-3 text-base font-medium rounded-xl text-slate-200 hover:bg-slate-800/80 hover:text-white transition"
+                                            >
+                                                FAQ
+                                            </a>
+                                        </li>
+                                        {isLogined ? (<li>
                                             <a
                                                 href="#blocks"
-                                                onClick={() => setOpen(false)}
+                                                onClick={() => window.location.assign("/SettingPage")}
                                                 className="flex items-center px-4 py-3 text-base font-medium rounded-xl text-slate-200 hover:bg-slate-800/80 hover:text-white transition"
                                             >
-                                                Blocks
+                                                Setting
                                             </a>
-                                        </li>
-                                        <li>
-                                            <Link
-                                                to="/user-card"
-                                                onClick={() => setOpen(false)}
-                                                className="flex items-center px-4 py-3 text-base font-medium rounded-xl text-slate-200 hover:bg-slate-800/80 hover:text-white transition"
-                                            >
-                                                Docs
-                                            </Link>
-                                        </li>
+                                        </li>) : (null)}
                                     </ul>
                                 </nav>
 
                                 {/* Footer CTA */}
-                                <div className="pt-6 border-t border-slate-800">
+
+                                {isLogined ? (
                                     <button
-                                        onClick={() => setOpen(false)}
+                                        onClick={() => { logoutHandle() }}
+                                        className='w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition shadow-lg shadow-blue-600/30 cursor-pointer'
+                                    >
+                                        Logout
+                                    </button>
+                                ) : (<div className="pt-6 border-t border-slate-800">
+                                    <button
+                                        onClick={() => window.location.assign("/LoginPage")}
                                         className="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition shadow-lg shadow-blue-600/30 cursor-pointer"
                                     >
-                                        Get Started
+                                        Login
                                     </button>
-                                </div>
+                                </div>)}
+
                             </div>
                         </DialogPanel>
                     </div>
